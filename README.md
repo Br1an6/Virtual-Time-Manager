@@ -36,3 +36,9 @@ python vtmanager.py -t 10:12:00
 `consumers.txt` contains all the sensors' IP.
 
 e.g. `tcp://127.0.0.1:5555`
+
+License
+-------
+
+This software is licensed under the MIT license
+© 2018 Virtual Time Manager contributor
