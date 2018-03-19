@@ -1,7 +1,8 @@
 # Management Application for Smart Grid System
 
 Using Python and ZMQ with [pyzmq](https://learning-0mq-with-pyzmq.readthedocs.io/en/latest/pyzmq/pyzmq.html)
-For Env-Setup, please visit repo: [emb-vt](https://github.com/Br1an6/emb-vt)
+
+> Use **vtmanager.py** for now
 
 ### How to use
 
@@ -36,9 +37,3 @@ python vtmanager.py -t 10:12:00
 `consumers.txt` contains all the sensors' IP.
 
 e.g. `tcp://127.0.0.1:5555`
-
-License
--------
-
-This software is licensed under the MIT license
-© 2018 Virtual Time Manager contributor
