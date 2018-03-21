@@ -16,7 +16,9 @@ import subprocess # Watch out for shell injection for using subprocess.call
 import optparse
 import psutil # apt-get install python-dev pip install psutil
 import zmq
+import vtclock
 
+CLOCK_REALTIME = 1
 
 # Initial Logger for multiprocess
 logger = logging.getLogger()
@@ -261,7 +263,7 @@ def valueRetriever(server_localhost):
         if __debug__:
             if sensor_val < 2: # assume this is the situation we need to pause the system
                 print '[*] Not getting value, system pasuing...  ', time.ctime()
-                logger.info("Host_System_pasuing: %.9f", time.time())
+                logger.info("Host_System_pasuing: %s", vtclock.getTime(CLOCK_REALTIME))
                 connectionMg.sendCommand('STOP', server_localhost, 'loopback')
                 time.sleep(5) # to simulate waiting for value
         else:
