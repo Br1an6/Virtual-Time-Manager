@@ -4,7 +4,7 @@
 #  yliu301@iit.edu  #
 #####################
 #      EMB VT       #
-#    Version 0.6    #
+#   Version 0.9.1   #
 #####################
 import time, datetime
 import random
@@ -16,7 +16,7 @@ import subprocess # Watch out for shell injection for using subprocess.call
 import optparse
 import psutil # apt-get install python-dev pip install psutil
 import zmq
-import vtclock
+# import vtclock
 
 CLOCK_REALTIME = 1
 
@@ -263,7 +263,9 @@ def valueRetriever(server_localhost):
         if __debug__:
             if sensor_val < 2: # assume this is the situation we need to pause the system
                 print '[*] Not getting value, system pasuing...  ', time.ctime()
-                logger.info("Host_System_pasuing: %s", vtclock.getTime(CLOCK_REALTIME))
+                process = subprocess.Popen(['cat', '/proc/'+str(os.getpid())+'/fpt'], stdout=subprocess.PIPE)
+                out, err = process.communicate()
+                logger.info("Host_System_pasuing: %.9f", (float(out[:-3])*0.000000001) +  time.time())
                 connectionMg.sendCommand('STOP', server_localhost, 'loopback')
                 time.sleep(5) # to simulate waiting for value
         else:
