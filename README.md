@@ -1,5 +1,7 @@
 # Management Application for Smart Grid System
 
+For environment setup, please check [emb-vt](https://github.com/Br1an6/emb-vt)
+
 Using Python and ZMQ with [pyzmq](https://learning-0mq-with-pyzmq.readthedocs.io/en/latest/pyzmq/pyzmq.html)
 
 > Use **vtmanager.py** for now
